@@ -83,10 +83,15 @@ const sidebar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.user}>
-        <Image src='/noavatar.png' width={50} height={50}/>
+        <Image className={styles.userImage} src='/noavatar.png' width={50} height={50}/>
+        <div className={styles.userDetail}>
+          <span className={styles.username}>ENG-OMAR</span>
+          <span className={styles.userRole}>Administration</span>
 
+        </div>
+ 
       </div>
-      <ul>
+      <ul className={styles.list}>
         {menuItems.map((cat)=>{
           return <li key={cat.title}>
             <span className={styles.car}>{cat.title}</span>
