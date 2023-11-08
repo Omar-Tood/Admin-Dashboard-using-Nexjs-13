@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from '../sidebar/sidebar.module.css'
+import MenuLink from './menuLink/menuLink';
 import {
   MdDashboard,
   MdSupervisedUserCircle,
@@ -13,6 +14,7 @@ import {
   MdLogout,
 } 
 from 'react-icons/md'
+import Image from 'next/image';
 
 const menuItems = [
   {
@@ -80,9 +82,18 @@ const menuItems = [
 const sidebar = () => {
   return (
     <div className={styles.container}>
+      <div className={styles.user}>
+        <Image src='/noavatar.png' width={50} height={50}/>
+
+      </div>
       <ul>
         {menuItems.map((cat)=>{
-          return <li key={cat.title}>{cat.title}</li>
+          return <li key={cat.title}>
+            <span className={styles.car}>{cat.title}</span>
+            {cat.list.map((item)=>(
+              <MenuLink item={item} key ={item.title}/>
+            ))}
+          </li>
         })}
       </ul>
     </div>
